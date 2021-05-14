@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.ssmrr.mapper.TrDao">
+    <select id="dTree" resultType="com.jk.ssmrr.pojo.TrPojo">
+        select e.id,e.text,e.pid,e.url from t_tree_copy1 e where e.pid=#{0}
+    </select>
+
+
+    <select id="cha" resultType="com.jk.ssmrr.pojo.TrPojo">
+        select * from t_tree_copy1
+    </select>
+
+    <select id="hui" resultType="com.jk.ssmrr.pojo.TrPojo">
+        select * from t_tree_copy1 where id=#{id}
+    </select>
+
+    <delete id="del">
+        delete from t_tree_copy1 where id =  #{id}
+    </delete>
+
+
+    <insert id="add">
+        insert into t_tree_copy1(text,pid,url)
+        values(#{text},#{pid},#{url})
+    </insert>
+
+    <update id="xg">
+        update  t_tree_copy1 set text=#{text},pid=#{pid},url=#{url}  where id=#{id}
+    </update>
+
+
+</mapper>
